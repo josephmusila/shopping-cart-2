@@ -1,0 +1,37 @@
+for (let i = 0; i < items.length; i++) {
+	var price = items[i].price;
+	var quantity = items[i].quantity;
+
+	var total = price * quantity;
+
+	var name = items[i].name;
+	var quantity = items[i].quantity;
+	var price = items[i].price;
+	var total = total;
+	var div = $("<div></<div>");
+	var deleteItem = $("<span>	DELETE</span>");
+
+	$("#cont").append(div);
+	$(div).append(function () {
+		$(this).append("<span>" + name + "<span>");
+		$(this).append("<span>" + quantity + "</span>");
+		$(this).append("<span>" + price + "</span>");
+		//	$(this).append(			"<span>" + total +"</span>")
+	});
+
+	for (var j = 0; j < div.length; j++) {
+		$(div[j]).click(function () {
+			var catdiv = $("<div id=bb></div>");
+			$("#selected-item").append(catdiv);
+
+			var sprice = items[i].price;
+
+			$(catdiv).append("<span>" + items[i].name + "</span>");
+			$(catdiv).append("<span id=cprice>" + sprice + "</span>");
+			$("#selected-item  div #cprice").html(function(){
+				$(this).css("color","yellow")
+			})
+		});
+	}
+}
+
